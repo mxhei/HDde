@@ -2,9 +2,9 @@ ARG VERSION=7
 FROM centos:${VERSION}
 
 ARG TIMEZONE="Asia/Shanghai"
+ENV GITHUB_PROXY="https://github.com"
 
 RUN VERSION=$(cat /etc/redhat-release  | awk '{print $4}') \
-    && GITHUB_PROXY="https://github.wuyanzheshui.workers.dev" \
     # set timezone
     && rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
     # change yum repository
